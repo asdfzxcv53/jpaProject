@@ -42,4 +42,12 @@ public class Order {
         orderItem.setOrder(this);
     }
 
+    public Order(){}
+
+    public Order(Member member, Delivery delivery, Date orderDate , OrderStatus status) {
+        this.member = member;
+        this.delivery = delivery;
+        this.orderDate = orderDate;
+        this.status = status;
+    }
 }

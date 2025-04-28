@@ -20,4 +20,15 @@ public class Delivery {
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status; // ENUM [READY, COMP(배송)]
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Delivery(){}
+
+    public Delivery(Address address, DeliveryStatus status) {
+        this.address = address;
+        this.status = status;
+    }
 }

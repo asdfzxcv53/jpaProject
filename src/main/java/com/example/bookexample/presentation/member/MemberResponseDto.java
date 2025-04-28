@@ -16,6 +16,7 @@ public class MemberResponseDto {
         MemberResponseDto memberResponseDto = new MemberResponseDto();
         memberResponseDto.id = member.getId();
         memberResponseDto.name = member.getName();
+        memberResponseDto.address = member.getAddress();
 
         return memberResponseDto;
     }

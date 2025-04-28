@@ -29,9 +29,21 @@ public class OrderRepository {
     }
 
     public List<Order> findByMemberId(Long memberId) {
-        Member member = em.find(Member.class, memberId);
 
-        return em.createQuery("select o from Order o where o.member = member", Order.class)
+        return em.createQuery("select o from Order o where o.member.id = :memberId", Order.class)
+                .setParameter("memberId", memberId)
                 .getResultList();
+    }
+
+    public List<Order> findOrderWithItemByMemberId(Long memberId) {
+
+        return em.createQuery(
+                "select distinct o from Order o" +
+                        "join fetch o.orderItems oi" +
+                        "join fetch oi.item" +
+                        "where o.member.id = :memberId", Order.class)
+                .setParameter("memberId" , memberId)
+                .getResultList();
+
     }
 }

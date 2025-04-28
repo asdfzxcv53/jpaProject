@@ -26,4 +26,12 @@ public class OrderItem {
     public void setOrder(Order order) {
         this.order = order;
     }
+
+    public OrderItem(){}
+
+    public OrderItem(Item item, int orderPrice, int count) {
+        this.item = item;
+        this.orderPrice = orderPrice;
+        this.count = count;
+    }
 }
