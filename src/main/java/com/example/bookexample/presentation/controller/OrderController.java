@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "order")
+@RequestMapping(value = "/order")
 public class OrderController {
 
     private final OrderService orderService;

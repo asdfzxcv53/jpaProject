@@ -7,6 +7,7 @@ import com.example.bookexample.infrastructure.OrderRepository;
 import com.example.bookexample.presentation.OrderItemResponseDto;
 import com.example.bookexample.presentation.order.OrderRequestDto;
 import com.example.bookexample.presentation.order.OrderResponseDto;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
+@Transactional
 public class OrderService {
 
     private OrderRepository orderRepository;
@@ -41,9 +43,9 @@ public class OrderService {
             order.addOrderItem(orderItem); // 여기서 order 에도 orderItem 을 set 해주고 orderItem 에도 order 을 set 해줌
         }
 
-        orderRepository.save(order); // cascade.ALL 옵션으로 delivery 와 orderItem 들도 모두다 save 된다.
+        Order savedOrder = orderRepository.save(order); // cascade.ALL 옵션으로 delivery 와 orderItem 들도 모두다 save 된다.
 
-        OrderResponseDto orderResponseDto = new OrderResponseDto(order.getId(), order.getOrderDate(), order.getOrderItems()
+        OrderResponseDto orderResponseDto = new OrderResponseDto(savedOrder.getId(), savedOrder.getOrderDate(), savedOrder.getOrderItems()
                 .stream()
                 .map(orderItem -> new OrderItemResponseDto(
                         orderItem.getItem().getId(),

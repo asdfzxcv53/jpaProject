@@ -46,7 +46,7 @@ public class ItemDtoFactory {
     }
     public Item createItem(ItemSaveRequestDto dto) {
         if (dto instanceof BookSaveRequestDto) {
-            BookSaveRequestDto bookSaveRequestDto = (BookSaveRequestDto) dto;
+            //BookSaveRequestDto bookSaveRequestDto = (BookSaveRequestDto) dto;
             Book book = Book
                     .builder()
                     .name(dto.getName())
@@ -57,7 +57,7 @@ public class ItemDtoFactory {
                     .build();
             return book;
         } else if (dto instanceof AlbumSaveRequestDto) {
-            AlbumSaveRequestDto albumSaveRequestDto = (AlbumSaveRequestDto) dto;
+            //AlbumSaveRequestDto albumSaveRequestDto = (AlbumSaveRequestDto) dto;
             Album album = Album
                     .builder()
                     .name(dto.getName())
@@ -68,7 +68,7 @@ public class ItemDtoFactory {
                     .build();
             return album;
         } else if (dto instanceof MovieSaveRequestDto) {
-            MovieSaveRequestDto movieSaveRequestDto = (MovieSaveRequestDto) dto;
+            //MovieSaveRequestDto movieSaveRequestDto = (MovieSaveRequestDto) dto;
             Movie movie = Movie
                     .builder()
                     .name(dto.getName())
