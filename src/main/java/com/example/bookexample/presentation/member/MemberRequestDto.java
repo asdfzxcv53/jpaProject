@@ -20,4 +20,11 @@ public class MemberRequestDto {
 
         return member;
     }
+
+    public MemberRequestDto() {}
+
+    public MemberRequestDto(String name, Address address) {
+        this.name = name;
+        this.address = address;
+    }
 }

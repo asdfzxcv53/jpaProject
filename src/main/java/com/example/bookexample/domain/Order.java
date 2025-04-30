@@ -42,6 +42,10 @@ public class Order {
         orderItem.setOrder(this);
     }
 
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
     public Order(){}
 
     public Order(Member member, Delivery delivery, Date orderDate , OrderStatus status) {
