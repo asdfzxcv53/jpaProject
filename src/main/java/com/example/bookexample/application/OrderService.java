@@ -39,6 +39,7 @@ public class OrderService {
 
         for(OrderRequestDto orderRequestDto : orderRequestDtos) {
             Item item = itemRepository.findOne(orderRequestDto.getItemId()); // 주문목록중 순회하면서 itemId 를 이용해 Item 을 찾음
+            item.removeStock(orderRequestDto.getOrderQuantity()); // 주문한 만큼 수량을 줄여준다.
             OrderItem orderItem = new OrderItem(item, item.getPrice(), orderRequestDto.getOrderQuantity());
             order.addOrderItem(orderItem); // 여기서 order 에도 orderItem 을 set 해주고 orderItem 에도 order 을 set 해줌
         }
