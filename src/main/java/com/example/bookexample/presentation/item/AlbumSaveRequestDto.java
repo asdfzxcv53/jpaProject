@@ -6,4 +6,11 @@ import lombok.Getter;
 public class AlbumSaveRequestDto extends ItemSaveRequestDto {
     String artist;
     String etc;
+
+    public AlbumSaveRequestDto() {}
+    public AlbumSaveRequestDto(String name, int price, int stockQuantity, String artist, String etc) {
+        super(name, price, stockQuantity);
+        this.artist = artist;
+        this.etc = etc;
+    }
 }

@@ -22,4 +22,12 @@ public abstract class ItemResponseDto {
     String name;
     int price;
     int stockQuantity;
+
+    public ItemResponseDto() {}
+    public ItemResponseDto(Long id, String name, int price, int stockQuantity) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.stockQuantity = stockQuantity;
+    }
 }
