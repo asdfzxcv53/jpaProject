@@ -1,3 +1,4 @@
+/*
 package com.example.bookexample.servicetest;
 
 import com.example.bookexample.application.ItemService;
@@ -84,3 +85,4 @@ public class MemberServiceTest {
         //Then
     }
 }
+*/

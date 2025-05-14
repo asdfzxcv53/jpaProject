@@ -8,13 +8,17 @@ import lombok.Setter;
 @Getter
 @Setter
 public class MemberRequestDto {
-    String name;
-    Address address;
+    private String name;
+    private String username;
+    private String password;
+    private Address address;
 
     public Member toEntity() {
         Member member = Member
                 .builder()
                 .name(name)
+                .username(username)
+                .password(password)
                 .address(address)
                 .build();
 
