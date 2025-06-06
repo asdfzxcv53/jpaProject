@@ -28,6 +28,7 @@ public class Member implements UserDetails {
     @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
     private Role role;
 
     @OneToMany(mappedBy = "member")
@@ -50,7 +51,7 @@ public class Member implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return List.of(()-> "ROLE_" + role.name());
     }
 
     @Override
